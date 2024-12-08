@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xrm.Sdk;
@@ -30,6 +31,19 @@ namespace LS.Plugins.ContactPlugins
             };
 
             Action(context, service, trace);
+        }
+
+        public Entity GetTarget(IPluginExecutionContext context)
+        {
+            if (!context.InputParameters.ContainsKey("Target")
+                || context.InputParameters["Target"] == null
+                || !(context.InputParameters["Target"] is Entity))
+            {
+                return null;
+            }
+
+            // throw new InvalidPluginExecutionException("I'm here 2 :) :)");
+            return context.InputParameters["Target"] as Entity;
         }
 
         public EntityReference GetTargetRef(IPluginExecutionContext context, string pluginname)

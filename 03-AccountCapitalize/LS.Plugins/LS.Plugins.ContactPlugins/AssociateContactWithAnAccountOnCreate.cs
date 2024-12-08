@@ -1,40 +1,37 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LS.Plugins.ContactPlugins
 {
-    public class AssociateContactWithAccountPreCreate : PluginBoilerplate
+    public class AssociateContactWithAnAccountOnCreate : PluginBoilerplate
     {
         public override void Action(IPluginExecutionContext context, IOrganizationService service, ITracingService trace)
         {
-
             var target = GetTarget(context);
             if (target == null)
             {
                 return;
             }
 
+            // Target = Contact
+            // Email Address = emailaddress1
             var EMAIL_ATTR = "emailaddress1";
-            var email = AttributeOrDefault<string>(target, EMAIL_ATTR, null);
-            if (email == null || !email.Contains("@"))
+            var emailVal = AttributeOrDefault<string>(target, EMAIL_ATTR, null);
+            if (emailVal == null)
             {
                 return;
             }
 
-            var atPosition = email.IndexOf("@");
-            var domain = email.Substring(atPosition + 1);
+            // erdfoniorwej@example.com
+            var domain = emailVal.Substring(emailVal.IndexOf("@") + 1);
 
-
-            var COMPANY_ATTR = "parentcustomerid";
-            var matchedContact = service.RetrieveMultiple(new FetchExpression($@"<fetch version=""1.0""
-       output-format=""xml-platform""
-       mapping=""logical""
-       no-lock=""false""
-       distinct=""true"">
+            var query = $@"<fetch>
     <entity name=""contact"">
-        <attribute name=""entityimage_url"" />
-        <attribute name=""statecode"" />
         <order attribute=""fullname""
                descending=""false"" />
         <attribute name=""parentcustomerid"" />
@@ -46,24 +43,29 @@ namespace LS.Plugins.ContactPlugins
             <condition attribute=""emailaddress1""
                        operator=""like""
                        value=""%{domain}"" />
+            <condition attribute=""parentcustomerid""
+                       operator=""not-null"" />
         </filter>
     </entity>
-</fetch>")).Entities.FirstOrDefault();
+</fetch>";
 
-            if (matchedContact == null)
+            var matchedContacts = service.RetrieveMultiple(new FetchExpression(query))
+                .Entities.FirstOrDefault();
+            if (matchedContacts == null)
             {
                 return;
             }
 
-            var accountRef = matchedContact[COMPANY_ATTR] as EntityReference;
+            var ACCOUNT_ATTR = "parentcustomerid";
+            var accountRef = AttributeOrDefault<EntityReference>(matchedContacts, ACCOUNT_ATTR, null);
             if (accountRef == null)
             {
                 return;
             }
 
-            target[COMPANY_ATTR] = accountRef;
-
+            target[ACCOUNT_ATTR] = accountRef;
 
         }
     }
+
 }

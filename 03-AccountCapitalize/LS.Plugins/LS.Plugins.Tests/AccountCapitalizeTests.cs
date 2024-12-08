@@ -1,9 +1,10 @@
-﻿using LS.Plugins.AccountCapitalize.Tests.Mocks;
+﻿using LS.Plugins.Tests.Mocks;
+using LS.Plugins.AccountCapitalize;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xrm.Sdk;
 using System;
 
-namespace LS.Plugins.AccountCapitalize.Tests
+namespace LS.Plugins.Tests
 {
 
     [TestClass]
@@ -17,7 +18,7 @@ namespace LS.Plugins.AccountCapitalize.Tests
         public void AccountCapitalize_DosentBreakIfNoTarget()
         {
             var context = new MockPluginExecutionContext();
-            var plugin = new AccountCapitalize();
+            var plugin = new AccountCapitalize.AccountCapitalize();
             plugin.Action(context, null, null);
         }
 
@@ -35,7 +36,7 @@ namespace LS.Plugins.AccountCapitalize.Tests
                     }
                 }
             };
-            var plugin = new AccountCapitalize();
+            var plugin = new AccountCapitalize.AccountCapitalize();
             plugin.Action(context, null, null);
 
         }
@@ -57,7 +58,7 @@ namespace LS.Plugins.AccountCapitalize.Tests
                     }
                 }
             };
-            var plugin = new AccountCapitalize();
+            var plugin = new AccountCapitalize.AccountCapitalize();
             plugin.Action(context, null, null);
 
             var target = context.InputParameters["Target"] as Entity;

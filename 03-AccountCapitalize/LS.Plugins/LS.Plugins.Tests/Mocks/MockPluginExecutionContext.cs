@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LS.Plugins.AccountCapitalize.Tests.Mocks
+namespace LS.Plugins.Tests.Mocks
 {
     internal class MockPluginExecutionContext : IPluginExecutionContext
     {
