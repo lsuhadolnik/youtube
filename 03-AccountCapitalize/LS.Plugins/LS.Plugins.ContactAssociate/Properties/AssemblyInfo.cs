@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LS.Plugins.ContactPlugins")]
+[assembly: AssemblyTitle("LS.Plugins.ContactAssociate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LS.Plugins.ContactPlugins")]
+[assembly: AssemblyProduct("LS.Plugins.ContactAssociate")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a065ad98-5de4-4fa1-aaf6-1796d3c27d87")]
+[assembly: Guid("a83bc053-3336-45cb-be51-71bd1b104448")]
 
 // Version information for an assembly consists of the following four values:
 //

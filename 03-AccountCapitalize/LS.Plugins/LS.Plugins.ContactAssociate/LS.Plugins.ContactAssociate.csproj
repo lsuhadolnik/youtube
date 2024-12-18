@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A065AD98-5DE4-4FA1-AAF6-1796D3C27D87}</ProjectGuid>
+    <ProjectGuid>{A83BC053-3336-45CB-BE51-71BD1B104448}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LS.Plugins.ContactPlugins</RootNamespace>
-    <AssemblyName>LS.Plugins.ContactPlugins</AssemblyName>
+    <RootNamespace>LS.Plugins.ContactAssociate</RootNamespace>
+    <AssemblyName>LS.Plugins.ContactAssociate</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -95,7 +95,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssociateContactWithAnAccountOnCreate.cs" />
+    <Compile Include="AssociateContactsOnCreate.cs" />
     <Compile Include="PluginBoilerplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

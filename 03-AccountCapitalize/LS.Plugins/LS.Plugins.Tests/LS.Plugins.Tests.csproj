@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountCapitalizeTests.cs" />
-    <Compile Include="AssociateContactWithAnAccountOnCreateTests.cs" />
+    <Compile Include="DomainExtraction.cs" />
     <Compile Include="Mocks\MockPluginExecutionContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

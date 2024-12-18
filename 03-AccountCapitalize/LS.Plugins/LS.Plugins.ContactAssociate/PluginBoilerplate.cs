@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xrm.Sdk;
 
-namespace LS.Plugins.ContactPlugins
+namespace LS.Plugins.AccountCapitalize
 {
 
     /**
