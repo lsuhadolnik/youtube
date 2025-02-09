@@ -29,6 +29,10 @@ namespace LS.Plugins.ContactAssociate
 
             // Extract the email domain
             // eourfhero@domain.com
+            if (emailAttribute.IndexOf("@") < 0 || emailAttribute.Length <= emailAttribute.IndexOf("@"))
+            {
+                return;
+            }
             var emailDomain = emailAttribute.Substring(emailAttribute.IndexOf("@") + 1);
 
             // Find other Contacts with the same email domain

@@ -100,8 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountCapitalizeTests.cs" />
+    <Compile Include="ContactAssociateTests.cs" />
+    <Compile Include="CrmServiceContext.cs" />
     <Compile Include="DomainExtraction.cs" />
+    <Compile Include="Entities.cs" />
+    <Compile Include="EntityOptionSetEnum.cs" />
+    <Compile Include="Mocks\MockOgranizationService.cs" />
     <Compile Include="Mocks\MockPluginExecutionContext.cs" />
+    <Compile Include="OptionSets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +118,10 @@
     <ProjectReference Include="..\LS.Plugins.AccountCapitalize\LS.Plugins.AccountCapitalize.csproj">
       <Project>{fe167d98-784d-4811-85ab-ccd46cb4e780}</Project>
       <Name>LS.Plugins.AccountCapitalize</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LS.Plugins.ContactAssociate\LS.Plugins.ContactAssociate.csproj">
+      <Project>{A83BC053-3336-45CB-BE51-71BD1B104448}</Project>
+      <Name>LS.Plugins.ContactAssociate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
